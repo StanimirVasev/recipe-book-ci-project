@@ -15,6 +15,11 @@ body {
     flex: 1 0 auto;
   }
 
+  footer,
+  footer a {
+      color: white;
+  }
+
   /* Social and contact icons */
   .social-icons i,
   .contact-info i {
