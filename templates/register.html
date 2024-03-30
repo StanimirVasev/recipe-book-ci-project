@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
+            <div class="card-panel">
+                <!-- Register heading inside the card panel -->
+                <h4 class="register-message center-align">Register for free</h3>
+
+                <!-- Username input field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-user-circle prefix black-text"></i>
+                        <input id="username" name="username" type="text" minlength="5"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                
+                <!-- Email input field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-envelope prefix black-text"></i>
+                        <input id="email" name="email" type="email" class="validate" required>
+                        <label for="email">Email address</label>
+                    </div>
+                </div>
+                
+                <!-- Password input field -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-lock prefix black-text"></i>
+                        <input id="password" name="password" type="password" minlength="5"
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                
+                <!-- Register button -->
+                <div class="row">
+                    <button type="submit" class="col s12 btn-large black white-text">
+                        Create account
+                    </button>
+                </div>
+
+                <!-- Already have an account message -->
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <p class="account-message">Already have an account? <a href="#"><i class="fas fa-sign-in-alt"></i> Sign in here.</a></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
