@@ -33,7 +33,7 @@ def register():
             {"username": request.form.get("username").lower()})
         # Show error message if username is already in use
         if existing_user:
-            flash("Username already in use. Please try again.")
+            flash("Username already in use. Please try again.", 'flash-message--error')
             
             return redirect(url_for("register"))
 
@@ -41,7 +41,7 @@ def register():
             {"email": request.form.get("email").lower()})
         # Show error message if email address is already in use
         if existing_email:
-            flash("Email already in use. Please try again.")
+            flash("Email already in use. Please try again.", 'flash-message--error')
             return redirect(url_for("register"))
 
         # Registers new user in MongoDB
@@ -55,7 +55,7 @@ def register():
 
         # Put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("You account has been created!")
+        flash("You account has been created!", 'flash-message--success')
     return render_template("register.html")
 
 
