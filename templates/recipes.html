@@ -55,6 +55,8 @@
                   Not suitable for vegans. <i class="fas fa-exclamation-circle"></i>
                 {% endif %}
               </div>
+
+              <!-- Ingredients -->
                 <li>
                   <div class="collapsible-header">
                     <i class="fas fa-shopping-basket"></i> Ingredients:
@@ -70,6 +72,25 @@
                     </ul>
                   </div>
                 </li>
+
+                <!-- Instructions -->
+                <li>
+                  <div class="collapsible-header">
+                    <i class="fas fa-book-open"></i> Instructions:
+                    <i class="fas fa-chevron-down drop_down_arrow"></i>
+                  </div>
+                  <div class="collapsible-body">
+                    <ol class="ol-instructions">
+                      {% for instructions in recipe.recipe_instructions.splitlines() %}
+                        <li>
+                          {{ instructions | capitalize }}
+                        </li>
+                      {% endfor %}
+                    </ol>
+                  </div>
+                </li>
+
+
               </div>
             </li>
           {% endfor %}

@@ -33,6 +33,10 @@
     background-color: #B71C1C !important;
 }
 
+.ol-instructions {
+    padding-left: 1rem !important;
+}
+
 
 /* Sticky footer */
 body {
