@@ -72,7 +72,7 @@ def login():
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Hello, {}".format(request.form.get("username")), 'flash-message--success')
+                flash("Hello, {}! It's great to see you online!".format(request.form.get("username")), 'flash-message--success')
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
