@@ -1,4 +1,80 @@
 {% extends "base.html" %}
 {% block content %}
 
-(% endblock %)
+<div class="caption center-align">
+    <h4 class="red-text text-darken 4">Add a new recipe</h4>
+    <h5 class="black-text">Please provide the following details.</h5>
+  </div>
+
+  <div class="row card-panel">
+    <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+        <!-- category selection -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix"></i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected>Choose Category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category_name"> Category</label>
+            </div>
+        </div>
+
+                <!-- cuisine selection -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-globe prefix"></i>
+                        <select id="cuisine_name" name="cuisine_name" class="validate" required>
+                            <option value="" disabled selected>Choose Cuisine</option>
+                            {% for cuisine in cuisines %}
+                                <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="cuisine_name"> Cuisine</label>
+                    </div>
+                </div>
+        <!-- recipe name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix"></i>
+                <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50"
+                    type="text" class="validate" required>
+                <label for="recipe_name">Recipe Name</label>
+            </div>
+        </div>
+        <!-- recipe description -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix"></i>
+                <textarea id="recipe_description" name="recipe_description" minlength="5"
+                    maxlength="200" class="materialize-textarea validate" required></textarea>
+                <label for="recipe_description"> Description</label>
+            </div>
+        </div>
+        <!-- is vegan toggle -->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle prefix"></i>
+                    <label for="is_vegan">
+                        <input type="checkbox" id="is_vegan" name="is_vegan">
+                        <span class="lever"></span>
+                        Is vegan
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large light-blue darken-4 text-shadow">
+                    Add Recipe <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+  {% endblock %}

@@ -102,10 +102,19 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
-    # remove user from session cookie
+    # Remove user from session cookie
     flash("You have been logged out!"'flash-message--success')
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_recipe")
+def add_recipe():
+  # Allows users to add new recipes
+  categories = mongo.db.categories.find().sort("category_name", 1)
+  cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
+  return render_template("add_recipe.html", categories=categories, cuisines=cuisines)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
