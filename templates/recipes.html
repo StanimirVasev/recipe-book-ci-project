@@ -46,13 +46,18 @@
                   <strong>{{ recipe.recipe_name }}<i class="fas fa-chevron-down drop_down_arrow"></i></strong>
                 </span>
               </div>
+
+              <!-- Description -->
               <div class="collapsible-body">
                 <strong>{{ recipe.cuisine_name }} | {{ recipe.category_name }} </strong>
                 <p>{{ recipe.recipe_description }}</p>
+
+                <p><i class="fas fa-clock"></i> Preparation time: {{ recipe.preperation_time|capitalize }} minutes</p>
+                <p><i class="fas fa-users"></i> Serves: {{ recipe.serves|capitalize }} people</p>
                 {% if recipe.is_vegan == "true" %}
-                  Suitable for vegans. <i class="fas fa-leaf"></i>
+                <i class="fas fa-leaf"></i> Suitable for vegans.
                 {% else %}
-                  Not suitable for vegans. <i class="fas fa-exclamation-circle"></i>
+                <i class="fas fa-exclamation-circle"></i> Not suitable for vegans.
                 {% endif %}
               </div>
 
