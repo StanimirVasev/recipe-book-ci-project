@@ -29,6 +29,10 @@
     max-width: 100%;
 }
 
+.indicators li.active {
+    background-color: #B71C1C !important;
+}
+
 
 /* Sticky footer */
 body {
