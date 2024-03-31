@@ -34,7 +34,6 @@ def register():
         # Show error message if username is already in use
         if existing_user:
             flash("Username already in use. Please try again.", 'flash-message--error')
-            
             return redirect(url_for("register"))
 
         existing_email = mongo.db.users.find_one(
@@ -57,6 +56,33 @@ def register():
         session["user"] = request.form.get("username").lower()
         flash("You account has been created successfully!", 'flash-message--success')
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # Check if user exists in the db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # Check if password matches user input
+            if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Hello, {}".format(request.form.get("username")), 'flash-message--success')
+                return redirect(url_for("profile", username=session["user"]))
+            else:
+                # Show error message if incorrect password is used
+                flash("Incorrect password. Please try again.", 'flash-message--error')
+                return redirect(url_for("login"))
+
+        else:
+            # Show error message if incorrect username is used
+            flash("Incorrect username. Please try again.", 'flash-message--error')
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
