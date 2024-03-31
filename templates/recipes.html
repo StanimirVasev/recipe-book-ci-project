@@ -40,69 +40,38 @@
       <div class="col s4">
         <ul class="collapsible">
           {% for recipe in recipes %}
-          <li>
-            <div class="collapsible-header white-text red darken-4 text-shadow">
-              <i class="fas fa-caret-down"></i>
-              <span class="materialize-text mb-0">
-                <strong>{{ recipe.recipe_name }} | {{ recipe.cuisine_name }}</strong>
-              </span>
-            </div>
-            <div class="collapsible-body">
-              <strong>{{ recipe.category_name }}</strong>
-              <p>{{ recipe.recipe_description }}</p>
-              {% if recipe.is_vegan == "true" %}
-                Suitable for vegans. <i class="fas fa-leaf"></i>
-              {% else %}
-                Not suitable for vegans. <i class="fas fa-exclamation-circle"></i>
-              {% endif %}
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="col s4">
-        <ul class="collapsible">
-          {% for recipe in recipes %}
-          <li>
-            <div class="collapsible-header white-text red darken-4 text-shadow">
-              <i class="fas fa-caret-down"></i>
-              <span class="materialize-text mb-0">
-                <strong>{{ recipe.recipe_name }} | {{ recipe.cuisine_name }}</strong>
-              </span>
-            </div>
-            <div class="collapsible-body">
-              <strong>{{ recipe.category_name }}</strong>
-              <p>{{ recipe.recipe_description }}</p>
-              {% if recipe.is_vegan == "true" %}
-                Suitable for vegans. <i class="fas fa-leaf"></i>
-              {% else %}
-                Not suitable for vegans. <i class="fas fa-exclamation-circle"></i>
-              {% endif %}
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="col s4">
-        <ul class="collapsible">
-          {% for recipe in recipes %}
-          <li>
-            <div class="collapsible-header white-text red darken-4 text-shadow">
-              <i class="fas fa-caret-down"></i>
-              <span class="materialize-text mb-0">
-                <strong>{{ recipe.recipe_name }} | {{ recipe.cuisine_name }}</strong>
-              </span>
-            </div>
-            <div class="collapsible-body">
-              <strong>{{ recipe.category_name }}</strong>
-              <p>{{ recipe.recipe_description }}</p>
-              {% if recipe.is_vegan == "true" %}
-                Suitable for vegans. <i class="fas fa-leaf"></i>
-              {% else %}
-                Not suitable for vegans. <i class="fas fa-exclamation-circle"></i>
-              {% endif %}
-            </div>
-          </li>
+            <li>
+              <div class="collapsible-header white-text red darken-4 text-shadow">
+                <i class="fas fa-utensils"></i><span class="materialize-text mb-0">
+                  <strong>{{ recipe.recipe_name }} | {{ recipe.cuisine_name }} <i class="fas fa-chevron-down drop_down_arrow"></i></strong>
+                </span>
+              </div>
+              <div class="collapsible-body">
+                <strong>{{ recipe.category_name }}</strong>
+                <p>{{ recipe.recipe_description }}</p>
+                {% if recipe.is_vegan == "true" %}
+                  Suitable for vegans. <i class="fas fa-leaf"></i>
+                {% else %}
+                  Not suitable for vegans. <i class="fas fa-exclamation-circle"></i>
+                {% endif %}
+              </div>
+                <li>
+                  <div class="collapsible-header">
+                    <i class="fas fa-shopping-basket"></i> Ingredients:
+                    <i class="fas fa-chevron-down drop_down_arrow"></i>
+                  </div>
+                  <div class="collapsible-body">
+                    <ul>
+                      {% for ingredient in recipe.recipe_ingredients.splitlines() %}
+                        <li>
+                          - {{ ingredient | capitalize }}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </li>
+              </div>
+            </li>
           {% endfor %}
         </ul>
       </div>
