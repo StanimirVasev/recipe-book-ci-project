@@ -43,11 +43,11 @@
             <li>
               <div class="collapsible-header white-text red darken-4 text-shadow">
                 <i class="fas fa-utensils"></i><span class="materialize-text mb-0">
-                  <strong>{{ recipe.recipe_name }} | {{ recipe.cuisine_name }} <i class="fas fa-chevron-down drop_down_arrow"></i></strong>
+                  <strong>{{ recipe.recipe_name }}<i class="fas fa-chevron-down drop_down_arrow"></i></strong>
                 </span>
               </div>
               <div class="collapsible-body">
-                <strong>{{ recipe.category_name }}</strong>
+                <strong>{{ recipe.cuisine_name }} | {{ recipe.category_name }} </strong>
                 <p>{{ recipe.recipe_description }}</p>
                 {% if recipe.is_vegan == "true" %}
                   Suitable for vegans. <i class="fas fa-leaf"></i>
