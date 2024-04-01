@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+  <div class="col s12 center-align">
+    <div class="card-panel card-recipes center-align">
+    <h4 class="red-text text-darken 4 center-align">About us</h4>
+    <img class="responsive-img" src="static/images/profile-pic.jpg" alt="Image of owners, Stan and Veneta">
+    <h5 class="center">Coolinar is your one-stop shop for conquering the culinary world.</h5>
+    <h5 class="center"> We believe delicious, budget-friendly food shouldn't require a Michelin star chef's skills.</h5>
+    <h5 class="center">Here, you'll find easy-to-follow recipes, essential kitchen tools, and enough inspiration to turn that sad instant ramen into a masterpiece (okay, maybe not a masterpiece, but definitely an edible creation!).</h5>
+    <h5 class="center">So grab your mixing bowls and spatulas, because it's time to get cookin'!</h5>
+    <br>
+    <a class="btn-large black darken-4 text-shadow waves-effect center"
+                    href="{{ url_for('get_recipes') }}"><i class="fas fa-search left"></i>Search here</a>
+                    <a class="btn-large black darken-4 text-shadow waves-effect center"
+                    href="{{ url_for('shop') }}"><i class="fas fa-shopping-cart left"></i>Shop here</a>
+  </div>
+</div>
+</div>
+
+{% endblock %} 

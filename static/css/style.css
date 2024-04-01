@@ -1,3 +1,7 @@
+/*fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;800;900&family=Montserrat&display=swap');
+
 /* Navbar styling */
 
 .text-shadow {
@@ -50,6 +54,7 @@ nav .brand-logo {
 
 /* Sticky footer */
 body {
+    font-family: Lato, sans-serif;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
