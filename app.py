@@ -103,17 +103,35 @@ def profile(username):
 @app.route("/logout")
 def logout():
     # Remove user from session cookie
-    flash("You have been logged out!"'flash-message--success')
+    flash("You have been logged out!", 'flash-message--success')
     session.pop("user")
     return redirect(url_for("login"))
 
 
-@app.route("/add_recipe")
+@app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-  # Allows users to add new recipes
-  categories = mongo.db.categories.find().sort("category_name", 1)
-  cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
-  return render_template("add_recipe.html", categories=categories, cuisines=cuisines)
+    # Allows users to add new recipies
+    if request.method == "POST":
+        is_vegan = "true" if request.form.get("is_vegan") else "false"
+        recipe = {
+            "category_name": request.form.get("category_name"),
+            "cuisine_name": request.form.get("cuisine_name"),
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("recipe_description"),
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_instructions": request.form.get("recipe_instructions"),
+            "preperation_time": request.form.get("preperation_time"),
+            "serves": request.form.get("serves"),
+            "calories": request.form.get("calories"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe has been added to the database!", 'flash-message--success')
+        return redirect(url_for("get_recipes"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
+    return render_template("add_recipe.html", categories=categories, cuisines=cuisines)
 
 
 if __name__ == "__main__":

@@ -24,14 +24,20 @@
 
 /* Slider styling */
 
-.container {
-    width: 100%;
-    max-width: 100%;
+.slider {
+    position: static;
 }
 
-.indicators li.active {
-    background-color: #B71C1C !important;
+.slider .slides li {
+    top: unset;
 }
+
+/* Card styling */
+
+.card-recipies {
+    border: 2px solid #B71C1C;
+    margin-bottom: 20px;
+  }
 
 .ol-instructions {
     padding-left: 1rem !important;
