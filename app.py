@@ -117,7 +117,7 @@ def logout():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    # Allows users to add new recipies
+    # Allows users to add new recipes
     if request.method == "POST":
         is_vegan = "true" if request.form.get("is_vegan") else "false"
         recipe = {
