@@ -5,11 +5,11 @@
 $(document).ready(function () {
     $(".sidenav").sidenav({edge: "right"});
     $('.slider').slider({
-        indicators: false
-      });
+      indicators: false
+    });
     $('.collapsible').collapsible();
     $("select").formSelect();
-});
+  });
 
 validateMaterializeSelect();
 function validateMaterializeSelect() {
