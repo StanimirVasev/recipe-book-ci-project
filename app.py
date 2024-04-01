@@ -134,6 +134,32 @@ def add_recipe():
     return render_template("add_recipe.html", categories=categories, cuisines=cuisines)
 
 
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        is_vegan = "true" if request.form.get("is_vegan") else "false"
+        recipe = {
+            "category_name": request.form.get("category_name"),
+            "cuisine_name": request.form.get("cuisine_name"),
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_description": request.form.get("recipe_description"),
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_instructions": request.form.get("recipe_instructions"),
+            "preperation_time": request.form.get("preperation_time"),
+            "serves": request.form.get("serves"),
+            "calories": request.form.get("calories"),
+            "created_by": session["user"]
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, recipe)
+        flash("Your recipe has been updated.")
+        return redirect(url_for("get_recipes"))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    cuisines = mongo.db.cuisines.find().sort("cuisine_name", 1)
+    return render_template("edit_recipe.html", recipe=recipe, categories=categories, cuisines=cuisines)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

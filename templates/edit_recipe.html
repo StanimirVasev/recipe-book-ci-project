@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="caption center-align">
+    <h4 class="red-text text-darken 4">Edit recipe</h4>
+  </div>
+
+  <div class="row card-panel">
+    <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+        <!-- category selection -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix"></i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected>Choose category</option>
+                    {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category_name"> Category</label>
+            </div>
+        </div>
+
+                <!-- cuisine selection -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-globe prefix"></i>
+                        <select id="cuisine_name" name="cuisine_name" class="validate" required>
+                            <option value="" disabled selected>Choose cuisine</option>
+                            {% for cuisine in cuisines %}
+                                <option value="{{ cuisine.cuisine_name }}">{{ cuisine.cuisine_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="cuisine_name"> Cuisine</label>
+                    </div>
+                </div>
+        <!-- recipe name -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix"></i>
+                <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50"
+                    type="text" class="validate" required>
+                <label for="recipe_name">Recipe name</label>
+            </div>
+        </div>
+        <!-- recipe description -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix"></i>
+                <textarea id="recipe_description" name="recipe_description" minlength="5"
+                    maxlength="200" class="materialize-textarea validate" required></textarea>
+                <label for="recipe_description"> Description</label>
+            </div>
+        </div>
+
+                    <!-- ingredients  -->
+    <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-shopping-basket prefix"></i>
+          <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea validate"
+            data-length="1000" required></textarea>
+          <label for="recipe_ingredients">Ingredients</label>
+        </div>
+      </div>
+
+            <!-- instructions  -->
+    <div class="row">
+          <div class="input-field col s12">
+            <i class="fas fa-book-open prefix"></i>
+            <textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea validate"
+              data-length="1000" required></textarea>
+            <label for="recipe_instructions">Instructions</label>
+          </div>
+        </div>
+
+            <!-- preparation time -->
+    <div class="row">
+          <div class="input-field col s12">
+            <i class="fas fa-clock prefix"></i>
+            <select id="preperation_time" name="preperation_time" class="validate" required>
+              <option value="" disabled selected>Select:</option>
+              <option value="5-10">5-10 minutes</option>
+              <option value="10-15">10-15 minutes</option>
+              <option value="15-20">15-20 minutes</option>
+              <option value="20-25">20-25 minutes</option>
+              <option value="25-30">25-30 minutes</option>
+              <option value="30-35">30-35 minutes</option>
+              <option value="35-40">35-40 minutes</option>
+              <option value="40-45">40-45 minutes</option>
+              <option value="45-50">45-50 minutes</option>
+              <option value="50-55">50-55 minutes</option>
+              <option value="55-60">55-60 minutes</option>
+            </select>
+            <label for="preperation_time">Preparation time</label>
+          </div>
+        </div>
+
+                    <!-- serves -->
+    <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-users prefix"></i>
+          <select id="serves" name="serves" class="validate" required>
+            <option value="" disabled selected>Select:</option>
+            <option value="1">1 person</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 people</option>
+            <option value="7">7 people</option>
+            <option value="8">8 people</option>
+            <option value="9">9 people</option>
+            <option value="10">10 people</option>
+          </select>
+          <label for="serves">Servings</label>
+        </div>
+      </div>
+
+                  <!-- calories  -->
+    <div class="row">
+        <div class="input-field col s12">
+          <i class="fas fa-fire prefix"></i>
+          <textarea id="calories" name="calories" class="materialize-textarea validate"
+            data-length="5000" required></textarea>
+          <label for="calories">Calories</label>
+        </div>
+      </div>
+
+        <!-- is vegan toggle -->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle prefix"></i>
+                    <label for="is_vegan">
+                        <input type="checkbox" id="is_vegan" name="is_vegan">
+                        <span class="lever"></span>
+                        Is vegan
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button type="submit" class="btn-large black darken-4 text-shadow">
+                    Update Recipe
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+  {% endblock %}

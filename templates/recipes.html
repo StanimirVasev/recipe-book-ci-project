@@ -58,6 +58,9 @@
       {% endif %}
       <hr class="divider red">
       <p><em>This recipe was created by {{ recipe.created_by }}.</em></p>
+      <hr class="divider red">
+      <a href="" class="btn-small waves-effect waves-light red darken-4">Delete recipe</a>
+      <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small waves-effect waves-light green darken-4">Edit recipe</a>
     </div>
   </li>
 
