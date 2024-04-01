@@ -138,7 +138,7 @@ def add_recipe():
 def edit_recipe(recipe_id):
     if request.method == "POST":
         is_vegan = "true" if request.form.get("is_vegan") else "false"
-        recipe = {
+        submit = {
             "category_name": request.form.get("category_name"),
             "cuisine_name": request.form.get("cuisine_name"),
             "recipe_name": request.form.get("recipe_name"),
@@ -150,9 +150,8 @@ def edit_recipe(recipe_id):
             "calories": request.form.get("calories"),
             "created_by": session["user"]
         }
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, recipe)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Your recipe has been updated.")
-        return redirect(url_for("get_recipes"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
