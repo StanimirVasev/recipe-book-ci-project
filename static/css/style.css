@@ -4,6 +4,10 @@
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
+nav .brand-logo {
+    margin-left: 10px;
+}
+
 /* Flash messages */
 
 .flash_messages {
