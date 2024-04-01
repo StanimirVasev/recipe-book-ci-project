@@ -37,8 +37,9 @@
               <!-- Description -->
               <div class="collapsible-body">
                 <strong>{{ recipe.cuisine_name }} | {{ recipe.category_name }} | {{recipe.calories }} calories </strong>
+                <hr class="divider red">
                 <p>{{ recipe.recipe_description }}</p>
-
+                <hr class="divider red">
                 <p><i class="fas fa-clock"></i> Preparation time: {{ recipe.preperation_time|capitalize }} minutes</p>
                 <p><i class="fas fa-users"></i> Serves: {{ recipe.serves|capitalize }} people</p>
                 {% if recipe.is_vegan == "true" %}
@@ -46,6 +47,8 @@
                 {% else %}
                 <i class="fas fa-exclamation-circle"></i> Not suitable for vegans.
                 {% endif %}
+                <hr class="divider red">
+                <p><em>This recipe was created by {{ recipe.created_by }}.</em></p>
               </div>
 
               <!-- Ingredients -->
