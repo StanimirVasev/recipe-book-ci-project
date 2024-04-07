@@ -36,17 +36,15 @@
         <input type="text" name="query" id="query" minlength="3" class="validate" required>
         <label for="query">Type here...</label>
       </div>
-      </div>
-      <div class="row center">
-      <div class="col s12 search-buttons">
+      <div class="row center search-buttons">
         <button type="submit" class="black darken-4 btn text-shadow">
           <i class="fas fa-search left"></i> Search
         </button>
         <a href="{{ url_for('get_recipes') }}" class="red darken-4 btn text-shadow">
           <i class="fas fa-redo left"></i>Reset</a>
-      </div>
     </div>
   </form>
+</div>
 </div>
 
 <div class="row header-above-card">
