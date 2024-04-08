@@ -353,9 +353,9 @@ Those errors are expected as I use Jinja2 expressions. Flask renders the templat
 
 No other errors are found.
 
-An image of the result can be found ![here](static/images/testing/html-validation-base-1.jpg)
-An image of the result can be found ![here](static/images/testing/html-validation-base-2.jpg)
-An image of the result can be found ![here](static/images/testing/html-validation-base-3.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-base-1.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-base-2.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-base-3.jpg)
 
 - about.html:
 
@@ -363,7 +363,7 @@ Those errors are expected as I use the base.html extension which contains the in
 
 No other errors are found.
 
-An image of the result can be found ![here](static/images/testing/html-validation-about.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-about.jpg)
 
 - add_recipe.html:
 
@@ -371,7 +371,7 @@ Those errors are expected as I use the base.html extension which contains the in
 
 No other errors are found.
 
-An image of the result can be found ![here](static/images/testing/html-validation-add-recipe.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-add-recipe.jpg)
 
 - edit_recipe.html:
 
@@ -379,9 +379,9 @@ Those errors are expected as I use Jinja2 expressions. Flask renders the templat
 
 No other errors are found.
 
-An image of the result can be found ![here](static/images/testing/html-validation-edit-1.jpg)
-An image of the result can be found ![here](static/images/testing/html-validation-edit-2.jpg)
-An image of the result can be found ![here](static/images/testing/html-validation-edit-3.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-edit-1.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-edit-2.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-edit-3.jpg)
 
 - login.html:
 
@@ -389,25 +389,25 @@ Those errors are expected as I use the base.html extension which contains the in
 
 No other errors are found.
 
-An image of the result can be found ![here](static/images/testing/html-validation-login.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-login.jpg)
 
 - profile.html:
 
 Those errors are expected as I use the base.html extension which contains the information required. Flask renders the template, evaluates the Jinja2 expression, and replaces {{ url_for('xyz') }} with the actual URL before sending the HTML to the browser.
 
-1 error was found on line 13 - apparently, I opened a <h5> tag but mistakenly closed it with </h4>. This was spotted and fixed after the validation test.
+1 error was found on line 13 - apparently, I opened a h5 tag but mistakenly closed it with h4. This was spotted and fixed after the validation test.
 
-An image of the result can be found ![here](static/images/testing/html-validation-profile.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-profile.jpg)
 
 - recipes.html:
 
 Those errors are expected as I use the base.html extension which contains the information required. Flask renders the template, evaluates the Jinja2 expression, and replaces {{ url_for('xyz') }} with the actual URL before sending the HTML to the browser.
 
 2 errors were found on lines 9 and 12: No space between attributes. - I forgot to add spacing before alt but this was spotted and fixed.
-3 more errors with <div> and <form> elements were found on lines 39-51 - apparently, I've added an extra </div> which has caused the issues. There was also an extra <div col-12> that was before the </form> and it was causing an error. This has been resolved.
+3 more errors with div and form elements were found on lines 39-51 - apparently, I've added an extra closing div which has caused the issues. There was also an extra div col-12 that was before the closing form and it was causing an error. This has been resolved.
 
-An image of the result can be found ![here](static/images/testing/html-validation-recipes-1.jpg)
-An image of the result can be found ![here](static/images/testing/html-validation-recipes-2.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-recipes-1.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-recipes-2.jpg)
 
 - register.html:
 
@@ -415,7 +415,7 @@ Those errors are expected as I use the base.html extension which contains the in
 
 No other errors are found.
 
-An image of the result can be found ![here](static/images/testing/html-validation-register.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-register.jpg)
 
 - shop.html:
 
@@ -423,14 +423,14 @@ Those errors are expected as I use the base.html extension which contains the in
 
 No other errors are found.
 
-An image of the result can be found ![here](static/images/testing/html-validation-shop.jpg)
+An image of the result can be found here ![here](static/images/testing/html-validation-shop.jpg)
 
 ### CSS validation 
 
 The style.css file was tested on the [W3C CSS  Validation website](https://jigsaw.w3.org/css-validator/) 
 No errors were found and the result shows a "Congratulations! No Error Found." message. 
 
-An image of the result can be found ![here](static/images/testing/css-validation.jpg)
+An image of the result can be found here ![here](static/images/testing/css-validation.jpg)
 
 ### JavaScript validation
 
@@ -440,7 +440,7 @@ The results from the test were as follows:
 
 - 1 warning: 1 unnecessary semicolon was found on line 51. This was resolved after the test and there were no more errors.
 
-An image of the result can be found ![here](static/images/testing/js-validation.jpg)
+An image of the result can be found here ![here](static/images/testing/js-validation.jpg)
 
 ### Python validation 
 
@@ -452,7 +452,7 @@ The results from the test were as follows:
 - Error 2-9: 8 errors regarding character count > 79 characters - This is caused by the length of my flash messages but I prefer to keep them like although shorter messages could be displayed. The additional checks and styling are also causing this issue and I think it's still an improvement in the code.
 - Error 10: 189: W292 no newline at end of the file - I am not sure how to fix this code because as soon as I add a new line, it gives me another error. I have looked at other CI Student projects as well as the lecturer's code for various projects and it seems to be exactly like this at the end. I believe this isn't a big issue.
 
-An image of the result can be found ![here](static/images/testing/python-validation.jpg)
+An image of the result can be found here ![here](static/images/testing/python-validation.jpg)
 
 ### Lighthouse 
 
@@ -464,7 +464,7 @@ Notes for improvement:
 - Accessibility: Background and foreground colours in the Search bar's 'Type here' do not have a sufficient contrast ratio. This can be improved by changing the font colour.
 - SEO: Add a meta description to the base.html file.
 
-An image of the result can be found [here](static/images/testing/lighthouse.jpg)
+An image of the result can be found here ![here](static/images/testing/lighthouse.jpg)
 
 ### Other manual tests
 
@@ -472,7 +472,7 @@ An image of the result can be found [here](static/images/testing/lighthouse.jpg)
 
 - Functionality for all tasks works perfectly. Also, flash messages display accordingly if the task was successful. Please check the example from the 'Add recipe' functionality:
 
-An image of the result can be found [here](static/images/testing/test_add_recipe.jpg)
+An image of the result can be found here ![here](static/images/testing/test_add_recipe.jpg)
 
 ### Known Bugs
 
