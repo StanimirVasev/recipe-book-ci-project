@@ -167,7 +167,7 @@ def edit_recipe(recipe_id):
             "calories": request.form.get("calories"),
             "created_by": session["user"]
         }
-        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, submit)
+        mongo.db.recipes.update_one({"_id": ObjectId(recipe_id)}, {"$set": submit}, upsert=True)
         flash("Your recipe has been updated.", 'flash-message--success')
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
